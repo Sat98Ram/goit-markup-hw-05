@@ -8,7 +8,8 @@
   --white-color: #fff;
   --success-color: #31d0aa;
   --subtle-text-color: #8e8f99;
-  --transition-dur-and-funk: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-duration: 250ms;
+  --transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
   --modal-window-bckg: #fcfcfc;
 }
 
@@ -80,7 +81,6 @@ img {
 /* Header */
 
 .header {
-  padding: 24px 0 23px 0;
   border-bottom: 1px solid;
   border-color: var(--light-color);
 }
@@ -93,6 +93,8 @@ img {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--dark-color);
+  padding-top: 24px;
+  padding-bottom: 23px;
 }
 .web {
   color: var(--primary-brand-color);
@@ -119,16 +121,36 @@ img {
 }
 
 .site-nav-link {
+  display: block;
   font-weight: 500;
   font-size: 16px;
   line-height: calc(24 / 16);
   text-decoration: none;
   color: var(--dark-color);
+  padding-top: 24px;
+  padding-bottom: 23px;
+  transition: color var(--transition-duration) var(--transition-cubic);
 }
 
 .site-nav-link:hover,
 .site-nav-link:focus {
   color: var(--pressed-state-color);
+}
+
+.active-link {
+  position: relative;
+}
+
+.active-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--pressed-state-color);
+  border-radius: 2px;
 }
 
 /* Address */
@@ -154,6 +176,7 @@ img {
   line-height: calc(24 / 16);
   letter-spacing: 0.02em;
   color: var(--text-color);
+  transition: color var(--transition-duration) var(--transition-cubic);
 }
 
 .address-link:hover,
@@ -227,6 +250,8 @@ img {
   align-items: center;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
+  transition: background-color var(--transition-duration)
+    var(--transition-cubic);
 }
 
 .footer-link:hover,
@@ -283,6 +308,8 @@ img {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border: 1px solid transparent;
   border-radius: 4px;
+  transition: background-color var(--transition-duration)
+    var(--transition-cubic);
 }
 
 .hero-button:hover,
@@ -406,6 +433,8 @@ img {
   width: 100%;
   border-radius: 50%;
   background-color: var(--primary-brand-color);
+  transition: background-color var(--transition-duration)
+    var(--transition-cubic);
 }
 
 .team-link:hover,
@@ -439,10 +468,12 @@ img {
   border-radius: 4px;
   width: 168px;
   height: 88px;
+  transition: border-color var(--transition-duration) var(--transition-cubic);
 }
 
 .customer-icon {
   fill: var(--subtle-text-color);
+  transition: fill var(--transition-duration) var(--transition-cubic);
 }
 
 .customer-icon-link:hover,
@@ -478,6 +509,10 @@ img {
   text-align: center;
   padding: 12px 24px;
   margin-right: 24px;
+  transition: color var(--transition-duration) var(--transition-cubic),
+    background-color var(--transition-duration) var(--transition-cubic),
+    border-color var(--transition-duration) var(--transition-cubic),
+    box-shadow var(--transition-duration) var(--transition-cubic);
 }
 
 .button:hover,
@@ -543,6 +578,7 @@ img {
 .work-card-link {
   display: block;
   text-decoration: none;
+  transition: box-shadow var(--transition-duration) var(--transition-cubic);
 }
 
 .work-card-link:hover,
@@ -562,8 +598,6 @@ img {
   top: 0;
   width: 100%;
   height: 100%;
-  transform: translate(0, 100%);
-  transition: transform var(--transition-dur-and-funk);
   background-color: var(--primary-brand-color);
   color: var(--light-color);
   padding: 40px 32px;
@@ -571,6 +605,8 @@ img {
   font-size: 16px;
   line-height: calc(24 / 16);
   letter-spacing: 0.02em;
+  transform: translate(0, 100%);
+  transition: transform var(--transition-duration) var(--transition-cubic);
 }
 
 .work-card-link:hover .overlay,
@@ -588,6 +624,8 @@ img {
   width: 100%;
   height: 100%;
   background: rgba(46, 47, 66, 0.4);
+  transition: opacity var(--transition-duration) var(--transition-cubic),
+    visibility var(--transition-duration) var(--transition-cubic);
 }
 
 .modal {
@@ -614,11 +652,13 @@ img {
   width: 24px;
   height: 24px;
   padding: 0;
-  transition: background-color border-color var(--transition-dur-and-funk);
+  transition: background-color var(--transition-duration)
+      var(--transition-cubic),
+    border-color var(--transition-duration) var(--transition-cubic);
 }
 
 .close-icon {
-  transition: fill var(--transition-dur-and-funk);
+  transition: fill var(--transition-duration) var(--transition-cubic);
 }
 
 .modal-close-btn:hover,
