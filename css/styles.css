@@ -137,11 +137,38 @@ img {
   color: var(--pressed-state-color);
 }
 
+.current {
+  position: relative;
+}
+
+.current::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--pressed-state-color);
+  border-radius: 2px;
+}
 .active-link {
   position: relative;
 }
 
 .active-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 4px;
+  background-color: transparent;
+  border-radius: 2px;
+}
+
+.active-link:hover::after {
   content: "";
   position: absolute;
   bottom: 0;
